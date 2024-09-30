@@ -1,17 +1,16 @@
-import { FindAllPlayers } from "../repositories/players-repository"
-import { noContent, ok } from "../utils/http-helpers"
+
+import * as PlayerRepository  from "../repositories/players-repository";
+import { ok, noContent } from "../utils/http-helpers";
+
 
 export const getPlayerServices = async () => {
-    const data =  FindAllPlayers()
 
-    let Response = null
+    const data = await PlayerRepository.FindAllPlayer();
 
-    if(data){
-        Response = await ok(data)
+    if (data) {
+        return await ok(data);  
     } else {
-        Response = await noContent()
+        return await noContent();  
     }
-    
-    return Response
-}
 
+}
