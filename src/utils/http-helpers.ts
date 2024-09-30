@@ -3,7 +3,7 @@ import { HttpResponse } from "../model/HttpResponse.model"
 export const ok = async (data: any ): Promise<HttpResponse> =>{
     return {
         statusCode: 200,
-        body: JSON.stringify(data)
+        body: data
     }
 }
 
