@@ -6,7 +6,7 @@ function createApp(){
 
     app.use(Express.json());
 
-    app.use("/", router) 
+    app.use("/api", router) 
 
     return app;
 }
