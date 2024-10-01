@@ -13,3 +13,10 @@ export const noContent = async (): Promise<HttpResponse> =>{
        body: ''
     }
 }
+
+export const badyRequest = async (): Promise<HttpResponse> =>{
+    return {
+       statusCode: 400,
+       body: null
+    }
+}

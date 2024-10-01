@@ -205,3 +205,8 @@ const database: playersModel[] = [
 export const FindPlayerById =  async (id: number): Promise<playersModel | undefined> =>{
     return  database.find(player => player.id === id)
 }
+
+export const CreatePlayer = async (player: playersModel): Promise<playersModel> => {
+    database.push(player)
+    return player
+}
