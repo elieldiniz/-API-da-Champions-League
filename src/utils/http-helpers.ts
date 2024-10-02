@@ -20,3 +20,16 @@ export const badyRequest = async (): Promise<HttpResponse> =>{
        body: null
     }
 }
+
+export const Creat = async (): Promise<HttpResponse> =>{
+    return {
+       statusCode: 201,
+       body: {
+         message: "Created Successfully"
+       }
+    }
+}
+
+export function notFound(p0: string): any {
+    throw new Error("Function not implemented.")
+}

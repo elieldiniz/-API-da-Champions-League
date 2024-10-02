@@ -1,4 +1,5 @@
 import { playersModel } from "../model/player.model"
+import { Estatistics } from "../model/statistics-model"
 // import axios from "axios";
 // import { retry, circuitBreaker } from "../middlewares/retry-circuit-breaker";
 
@@ -209,4 +210,30 @@ export const FindPlayerById =  async (id: number): Promise<playersModel | undefi
 export const CreatePlayer = async (player: playersModel): Promise<playersModel> => {
     database.push(player)
     return player
+}
+
+export const  deleteOnePlayer =  async (id: number) =>{
+   const index = database.findIndex(player => player.id === id)
+
+    if (index !== -1) {
+        database.splice(index, 1)
+        return true
+    }
+
+    return false
+
+}
+
+export const FindAndModifyPlayers = async (id: number, statistics: Estatistics): Promise<playersModel | null> => {
+    const index = database.findIndex(player => player.id === id);
+
+    console.log('Player updated:',index)
+
+    if (index !== -1) {
+        
+        database[index].estatisticas = statistics;
+      
+    }
+
+    return  database[index]
 }

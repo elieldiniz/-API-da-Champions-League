@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import * as services from "../services/players-services";
 import { badyRequest } from "../utils/http-helpers";
+import { Estatistics } from "../model/statistics-model";
 
 
 export const getPlayer = async (req: Request, res: Response) => {
@@ -34,3 +35,26 @@ export const postPlayers = async (req: Request, res: Response) => {
     }
 
 }
+
+export const deletePlayer = async (req: Request, res: Response) => {
+
+    const id = parseInt(req.params.id)
+
+   const httpResponse = await services.deletePlayerServece(id)
+
+   res.status( httpResponse.statusCode).json(httpResponse.body)
+
+}
+
+export const patchPlayer = async (req: Request, res: Response) => {
+
+    const id = parseInt(req.params.id)
+
+    const bodyValue: Estatistics = req.body
+    
+
+
+}
+
+
+
