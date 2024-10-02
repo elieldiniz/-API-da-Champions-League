@@ -226,12 +226,9 @@ export const  deleteOnePlayer =  async (id: number) =>{
 
 export const FindAndModifyPlayers = async (id: number, statistics: Estatistics): Promise<playersModel | null> => {
     const index = database.findIndex(player => player.id === id);
-
-    console.log('Player updated:',index)
-
     if (index !== -1) {
         
-        database[index].estatisticas = statistics;
+    const response = database[index].estatisticas = statistics;
       
     }
 

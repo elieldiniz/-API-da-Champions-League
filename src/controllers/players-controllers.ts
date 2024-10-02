@@ -51,9 +51,19 @@ export const patchPlayer = async (req: Request, res: Response) => {
     const id = parseInt(req.params.id)
 
     const bodyValue: Estatistics = req.body
+
+    const httpResponse = await services.updatePlayerServices(id, bodyValue)
+
     
+    if(httpResponse){
+    
+        res.status(httpResponse.statusCode).json(httpResponse.body)
+    }else{
+        const response = await badyRequest()
 
-
+        res.status(response.statusCode).json(response.body)
+    }
+    
 }
 
 

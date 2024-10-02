@@ -63,7 +63,7 @@ export const deletePlayerServece =  async (id: number) => {
     if (deleted) {
         response = await HttpResponse.ok({messege:"deleted"})
     }  else {
-        response = await HttpResponse.badyRequest()
+        response = await HttpResponse.BadyRequestId()
     }
 
     return response
@@ -73,7 +73,14 @@ export const deletePlayerServece =  async (id: number) => {
 export const updatePlayerServices = async (id: number, statistics: Estatistics ) => {
     const data = await PlayerRepository.FindAndModifyPlayers(id, statistics)
 
-    const response = await HttpResponse.ok(data)
+    let response = null
+
+    if(!data || Object.keys(data).length === 0) {
+
+        const response = await HttpResponse.badyRequest()
+    }
+
+    response = await HttpResponse.ok(data)
 
     return response;
 }

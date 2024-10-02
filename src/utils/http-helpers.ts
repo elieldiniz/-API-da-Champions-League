@@ -21,6 +21,13 @@ export const badyRequest = async (): Promise<HttpResponse> =>{
     }
 }
 
+export const BadyRequestId = async (message?: string): Promise<HttpResponse> =>{
+    return {
+       statusCode: 400,
+       body: "The resource with the specified ID was not found"
+    }
+}
+
 export const Creat = async (): Promise<HttpResponse> =>{
     return {
        statusCode: 201,
