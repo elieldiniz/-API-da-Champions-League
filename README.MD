@@ -38,6 +38,8 @@ Clubes
 
 - GET /clubs: Retorna todos os clubes cadastrados.
 
+- ducumentação https://documenter.getpostman.com/view/32237127/2sAXxLBDiR
+
 ## Instalação e Execução
 
 Pré-requisitos
